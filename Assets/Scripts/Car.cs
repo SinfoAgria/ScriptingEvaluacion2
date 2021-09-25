@@ -7,9 +7,10 @@ public class Car : MonoBehaviour
 {
     [SerializeField] private ButtonReader brSO = default;
     [SerializeField] private float speed;
-    
+
     private ICarState icarState;
     private IMovement imovement;
+
 
     public float Speed { get => speed; set => speed = value; }
 
@@ -17,8 +18,8 @@ public class Car : MonoBehaviour
     {
         icarState = new AcelerateState();
         icarState.Execute(this);
-
         imovement = GetComponent<IMovement>();
+
     }
 
     private void OnEnable()
@@ -32,10 +33,11 @@ public class Car : MonoBehaviour
         brSO.greenEvent -= Acelerate;
         brSO.redEvent -= Stop;
         brSO.yellowEvent -= SlowSpeed;
-    }
+    } 
     private void Update()
     {
-        imovement.Move(Speed);
+        imovement.Move(this);
+        Debug.Log(speed);
     }
 
     public void Acelerate()
@@ -54,5 +56,4 @@ public class Car : MonoBehaviour
         icarState = new StopState();
         icarState.Execute(this);
     }
-
 }

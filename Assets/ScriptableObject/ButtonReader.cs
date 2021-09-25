@@ -9,6 +9,7 @@ public class ButtonReader : ScriptableObject
     public event UnityAction redEvent;
     public event UnityAction yellowEvent;
     public event UnityAction greenEvent;
+    public event UnityAction reverseEvent;
 
     public void OnRed()
     {

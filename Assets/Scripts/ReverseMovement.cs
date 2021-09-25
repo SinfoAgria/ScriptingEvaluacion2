@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ReverseMovement : MonoBehaviour, IMovement
 {
-    public void Move(float speed)
+    public void Move(Car car) 
     {
+        car.transform.Translate(transform.forward * Time.deltaTime * car.Speed * 1);
     }
 }
