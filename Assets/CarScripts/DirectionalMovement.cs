@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DirectionalMovement : MonoBehaviour, IMovement
 {
-    public void Move(float speed)
+    public void Move(Car car)
     {
-        transform.Translate(transform.forward * Time.deltaTime * speed  * -1);
+        car.transform.Translate(transform.forward * Time.deltaTime * car.Speed  * -1);
     }
 }
