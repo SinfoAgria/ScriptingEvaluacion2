@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AcelerateState : MonoBehaviour, ICarState
+public class AcelerateState : ICarState
 {
     public void Execute(Car car)
     {

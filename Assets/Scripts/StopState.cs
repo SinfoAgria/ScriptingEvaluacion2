@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class StopState : MonoBehaviour, ICarState
+public class StopState : ICarState
 {
     public void Execute(Car car)
     {
