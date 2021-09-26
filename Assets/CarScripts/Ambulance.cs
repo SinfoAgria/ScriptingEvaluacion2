@@ -2,28 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ambulance : Car, IAlert
+public class Ambulance : Car
 {
-    public Ambulance() : base()
-    {
-       
-    }
-   
 
     public override void OnEnable()
     {
         brSO.greenEvent += Acelerate;
     }
-
-    
-    public void Alert()
+    public override void OnDisable()
     {
-        Debug.Log("Aiudaaaaa");
+        brSO.greenEvent -= Acelerate;
     }
 
-    public override void PlaySound()
-    {
-        Debug.Log("iu iu iu");
 
-    }
+
 }
