@@ -18,7 +18,7 @@ public class Ambulance : Car
     public override void Acelerate()
     {
         base.Acelerate();
-        ICarSmoke icarSmoke= (ICarSmoke)icarState;
+        ICarSmoke icarSmoke= icarState as ICarSmoke;
         icarSmoke.ThrowSmoke();
         
     }

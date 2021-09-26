@@ -20,8 +20,7 @@ public class Car : MonoBehaviour
 
     public virtual void Awake() 
     {
-        icarState = new AcelerateState();
-        icarState.Execute(this);
+        Acelerate();
         imovement = GetComponent<IMovement>();
 
     }
