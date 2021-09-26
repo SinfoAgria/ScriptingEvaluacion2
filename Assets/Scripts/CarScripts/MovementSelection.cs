@@ -9,13 +9,13 @@ public class MovementSelection : MonoBehaviour, IMovement
     [SerializeField] private GameObject selectionResponseHolder;
     [SerializeField] private ButtonReader brSO = default;
 
-    private Car car;
+ 
 
-    private List<IMovement> selectionResponse;
+    private List<IMovement> movementResponse;
     private int currentIndex = 0;
 
     public void Awake() {
-        selectionResponse = selectionResponseHolder.GetComponents<IMovement>().ToList();
+        movementResponse = selectionResponseHolder.GetComponents<IMovement>().ToList();
     }
 
     public void OnEnable() {
@@ -23,11 +23,11 @@ public class MovementSelection : MonoBehaviour, IMovement
     }
 
     public void Next() {
-        currentIndex = (currentIndex + 1) % selectionResponse.Count;
+        currentIndex = (currentIndex + 1) % movementResponse.Count;
     }
 
     public void Move(Car car) {
-        this.car = car;
-        selectionResponse[currentIndex].Move(car);
+        
+        movementResponse[currentIndex].Move(car);
     }
 }

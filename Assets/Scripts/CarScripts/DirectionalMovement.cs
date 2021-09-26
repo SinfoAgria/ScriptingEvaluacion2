@@ -6,6 +6,6 @@ public class DirectionalMovement : MonoBehaviour, IMovement
 {
     public void Move(Car car)
     {
-        car.transform.Translate(transform.forward * Time.deltaTime * car.Speed  * -1);
+        car.transform.Translate(transform.forward * Time.deltaTime *car.Speed*car.Aceleration *-1);
     }
 }
