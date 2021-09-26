@@ -3,48 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Car : MonoBehaviour {
-    [SerializeField] private ButtonReader brSO = default;
-    [SerializeField] private float speed;
+public class Car : MonoBehaviour, ISound
+
+{
+    [SerializeField] protected ButtonReader brSO = default;
+    [SerializeField] protected float aceleration;
+    protected float speed;
+
 
     private ICarState icarState;
-    private IMovement imovement;
-
+    protected IMovement imovement;
+    private ISound isound;
 
     public float Speed { get => speed; set => speed = value; }
+    public float Aceleration { get => aceleration; }
 
-    void Awake() {
+    public virtual void Awake() 
+    {
+        isound = GetComponent<ISound>();
         icarState = new AcelerateState();
         icarState.Execute(this);
         imovement = GetComponent<IMovement>();
 
     }
-
-    private void OnEnable() {
+    private void Update()
+    {
+        imovement.Move(this);
+        
+    }
+    public virtual void OnEnable() {
         brSO.greenEvent += Acelerate;
         brSO.redEvent += Stop;
         brSO.yellowEvent += SlowSpeed;
     }
-    private void OnDisable() {
-        brSO.greenEvent -= Acelerate;
-        brSO.redEvent -= Stop;
-        brSO.yellowEvent -= SlowSpeed;
-    }
-    private void Update() {
-        imovement.Move(this);
-    }
-
-    public void Acelerate() {
+    
+    public void Acelerate()
+    {
         icarState = new AcelerateState();
         icarState.Execute(this);
     }
 
-    public void SlowSpeed() {
+    public void SlowSpeed()
+    {
         icarState = new SlowSpeedState();
         icarState.Execute(this);
     }
-    public void Stop() {
+    public void Stop()
+    {
         icarState = new StopState();
         icarState.Execute(this);
+    }
+    public virtual void PlaySound()
+    {
+        isound.PlaySound();
     }
 }
