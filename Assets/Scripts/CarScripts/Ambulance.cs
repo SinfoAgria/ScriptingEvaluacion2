@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ambulance : Car
 {
+    
 
     public override void OnEnable()
     {
@@ -14,6 +15,13 @@ public class Ambulance : Car
         brSO.greenEvent -= Acelerate;
     }
 
+    public override void Acelerate()
+    {
+        base.Acelerate();
+        ICarSmoke icarSmoke= (ICarSmoke)icarState;
+        icarSmoke.ThrowSmoke();
+        
+    }
 
 
 }

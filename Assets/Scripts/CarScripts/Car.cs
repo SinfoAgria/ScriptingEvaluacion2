@@ -11,7 +11,7 @@ public class Car : MonoBehaviour
     protected float speed;
 
 
-    private ICarState icarState;
+    protected ICarState icarState;
     protected IMovement imovement;
 
 
@@ -42,10 +42,11 @@ public class Car : MonoBehaviour
         brSO.yellowEvent -= SlowSpeed;
     }
 
-    public void Acelerate()
+    public virtual void Acelerate()
     {
         icarState = new AcelerateState();
         icarState.Execute(this);
+        
     }
 
     public void SlowSpeed()
