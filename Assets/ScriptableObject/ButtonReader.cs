@@ -13,6 +13,7 @@ public class ButtonReader : ScriptableObject
 
     public void OnRed()
     {
+     
         redEvent?.Invoke();
     }
    
