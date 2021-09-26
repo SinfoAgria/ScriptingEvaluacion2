@@ -18,7 +18,7 @@ public class Car : MonoBehaviour
     public float Speed { get => speed; set => speed = value; }
     public float Aceleration { get => aceleration; }
 
-    public virtual void Awake() 
+    public void Awake() 
     {
         Acelerate();
         imovement = GetComponent<IMovement>();
