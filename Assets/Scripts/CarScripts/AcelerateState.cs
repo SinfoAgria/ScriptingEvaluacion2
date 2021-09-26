@@ -11,7 +11,7 @@ public class AcelerateState : ICarState,ICarSmoke
 
     public void ThrowSmoke()
     {
-     Debug.Log("Hello there");
+     Debug.Log("Smoke Smoke");
 
     }
 }

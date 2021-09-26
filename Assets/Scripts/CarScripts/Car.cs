@@ -45,7 +45,8 @@ public class Car : MonoBehaviour
     {
         icarState = new AcelerateState();
         icarState.Execute(this);
-        
+        ICarSmoke icarSmoke = icarState as ICarSmoke;
+        icarSmoke.ThrowSmoke();
     }
 
     public void SlowSpeed()

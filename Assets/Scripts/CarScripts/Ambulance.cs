@@ -15,13 +15,5 @@ public class Ambulance : Car
         brSO.greenEvent -= Acelerate;
     }
 
-    public override void Acelerate()
-    {
-        base.Acelerate();
-        ICarSmoke icarSmoke= icarState as ICarSmoke;
-        icarSmoke.ThrowSmoke();
-        
-    }
-
 
 }
